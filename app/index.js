@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const swaggerUI = require("swagger-ui-express");
 const router = require("./router")
 const swaggerDocument = require("../docs/swagger.json");
-const { MORGAN_FORMAT } = require("../config/application")
+const { MORGAN_FORMAT } = require("../config/application");
 const app = express();
 
 app.use(morgan(MORGAN_FORMAT));

@@ -30,16 +30,38 @@ function apply(app) {
 
   app.get("/", applicationController.handleGetRoot);
 
+  // ============
+  // Auth
+  // ============
+
+  // register -> true
+  app.post("/v1/auth/register", authenticationController.handleRegister);
+  // login -> true
+  app.post("/v1/auth/login", authenticationController.handleLogin);
+  // whoami -> true
+  app.get("/v1/auth/whoami", authenticationController.authorize(accessControl.CUSTOMER), authenticationController.handleGetUser);
+
+  // ============
+  // Cars
+  // ============
+
+  // get all cars -> true
   app.get("/v1/cars", carController.handleListCars);
-  app.post("/v1/cars", authenticationController.authorize(accessControl.ADMIN), carController.handleCreateCar);
-  app.post("/v1/cars/:id/rent", authenticationController.authorize(accessControl.CUSTOMER), carController.handleRentCar);
+  // get by id -> true
   app.get("/v1/cars/:id", carController.handleGetCar);
+
+  // create -> true
+  app.post("/v1/cars", authenticationController.authorize(accessControl.ADMIN), carController.handleCreateCar);
+
+  // add rent -> true
+  app.post("/v1/cars/:id/rent", authenticationController.authorize(accessControl.CUSTOMER), carController.handleRentCar);
+
+  // put -> False
   app.put("/v1/cars/:id", authenticationController.authorize(accessControl.ADMIN), carController.handleUpdateCar);
+
+  // delete -> False
   app.delete("/v1/cars/:id", authenticationController.authorize(accessControl.ADMIN), carController.handleDeleteCar);
 
-  app.post("/v1/auth/login", authenticationController.handleLogin);
-  app.post("/v1/auth/register", authenticationController.handleRegister);
-  app.get("/v1/auth/whoami", authenticationController.authorize(accessControl.CUSTOMER), authenticationController.handleGetUser);
 
   app.use(applicationController.handleNotFound);
   app.use(applicationController.handleError);
