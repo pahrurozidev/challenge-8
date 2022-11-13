@@ -6,23 +6,23 @@ describe('GET /v1/cars', () => {
     let car;
     beforeEach(async () => {
         car = await Car.create({
-            name: "BMW",
+            name: 'BMW',
             price: 100000,
-            size: "Sedan",
-            image: "https://www.bmw.co.id/content/dam/bmw/common/all-models/i-series/i4/navigation/bmw-i4-mini-landingpage-modelfinder.png",
+            size: 'Sedan',
+            image: 'https://www.bmw.co.id/content/dam/bmw/common/all-models/i-series/i4/navigation/bmw-i4-mini-landingpage-modelfinder.png',
             isCurrentlyRented: false,
         });
         return car;
     });
     afterEach(() => car.destroy());
 
-    it("should response with 200 as status code", async () => {
+    it('should response with 200 as status code', async () => {
         const page = 1;
         const pageSize = 10;
 
         return request(app)
-            .get("/v1/cars")
-            .set("Content-Type", "application/json")
+            .get('/v1/cars')
+            .set('Content-Type', 'application/json')
             .send({ page, pageSize })
             .then((res) => {
                 expect(res.statusCode).toBe(200);
@@ -30,11 +30,11 @@ describe('GET /v1/cars', () => {
                     expect.objectContaining({
                         cars: expect.arrayContaining([
                             expect.objectContaining({}),
-                        ])
+                        ]),
                     }),
                     expect.objectContaining({
                         pagination: expect.any(Object),
-                    })
+                    }),
                 );
             });
     });

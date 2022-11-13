@@ -6,17 +6,17 @@ describe('GET /v1/cars/:id', () => {
     let car;
     beforeEach(async () => {
         car = await Car.create({
-            name: "BMW",
+            name: 'BMW',
             price: 100000,
-            size: "Sedan",
-            image: "https://www.bmw.co.id/content/dam/bmw/common/all-models/i-series/i4/navigation/bmw-i4-mini-landingpage-modelfinder.png",
+            size: 'Sedan',
+            image: 'https://www.bmw.co.id/content/dam/bmw/common/all-models/i-series/i4/navigation/bmw-i4-mini-landingpage-modelfinder.png',
             isCurrentlyRented: false,
         });
         return car;
     });
     afterEach(() => car.destroy());
 
-    it("should response with 200 as status code", async () => {
+    it('should response with 200 as status code', async () => {
         return request(app)
             .get(`/v1/cars/${car.id}`)
             .then((res) => {
@@ -28,7 +28,7 @@ describe('GET /v1/cars/:id', () => {
                         size: car.size,
                         image: car.image,
                         isCurrentlyRented: car.isCurrentlyRented,
-                    })
+                    }),
                 );
             });
     });

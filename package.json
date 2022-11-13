@@ -10,6 +10,7 @@
     "db:drop": "npx sequelize db:drop",
     "db:migrate": "sequelize db:migrate",
     "db:seed": "npx sequelize db:seed:undo:all && npx sequelize db:seed:all",
+    "eslint": "eslint ./app ./config ./db ./test",
     "test": "cls && jest --coverage",
     "run:all": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all && cls"
   },
