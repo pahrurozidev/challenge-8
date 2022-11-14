@@ -54,7 +54,7 @@ class AuthenticationController extends ApplicationController {
     handleLogin = async (req, res, next) => {
         try {
             const email = req.body.email.toLowerCase();
-            const { password } = req.body.password;
+            const password = req.body.password;
             const user = await this.userModel.findOne({
                 where: { email },
                 include: [{ model: this.roleModel, attributes: ['id', 'name'] }],

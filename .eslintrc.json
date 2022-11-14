@@ -33,6 +33,7 @@
         "one-var-declaration-per-line": 0,
         "global-require": 0,
         "no-path-concat": 0,
-        "no-sequences": 0
+        "no-sequences": 0,
+        "prefer-destructuring": 0
     }
 }

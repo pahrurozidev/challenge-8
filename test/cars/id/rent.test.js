@@ -3,22 +3,6 @@ const app = require('../../../app');
 const { Car } = require('../../../app/models');
 
 describe('POST /v1/cars/:id/rent', () => {
-    // let token;
-    // beforeAll((done) => {
-    //     request(app)
-    //         .post('/v1/auth/login')
-    //         .send({
-    //             email: 'fikri@binar.co.id',
-    //             password: '123456',
-    //         })
-    //         .expect(201)
-    //         .end((err, res) => {
-    //             if (err) throw err;
-    //             token = res.body.accessToken;
-    //             done();
-    //         });
-    // });
-
     let accessToken;
 
     beforeEach(async () => {
@@ -41,8 +25,6 @@ describe('POST /v1/cars/:id/rent', () => {
         });
         return car;
     });
-
-    // afterEach(() => car.destroy());
 
     it('should response with 201 as status code', async () => {
         const rentStartedAt = new Date();

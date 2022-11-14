@@ -28,7 +28,7 @@ function apply(app) {
     });
     const carController = new CarController({ carModel, userCarModel, dayjs });
 
-    const { accessControl } = authenticationController.accessControl;
+    const accessControl = authenticationController.accessControl;
 
     app.get('/', applicationController.handleGetRoot);
 
