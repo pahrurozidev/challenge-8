@@ -1,17 +1,9 @@
 const {
-<<<<<<< HEAD
-  DB_USER = "postgres",
-  DB_PASSWORD = "root",
-  DB_NAME = "bcr",
-  DB_HOST = "127.0.0.1",
-  DB_PORT = "5432",
-=======
     DB_USER = 'postgres',
     DB_PASSWORD = 'root',
     DB_NAME = 'bcr',
     DB_HOST = '127.0.0.1',
     DB_PORT = '5432',
->>>>>>> dev
 } = process.env;
 
 module.exports = {
