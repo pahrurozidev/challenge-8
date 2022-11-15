@@ -4,7 +4,6 @@ const app = require('../../app');
 describe('GET /v1/cars', () => {
     let accessToken;
 
-    // Creating Bearer Token for each 'it' method
     beforeEach(async () => {
         accessToken = await request(app).post('/v1/auth/login').send({
             email: 'pahrurozi@binar.co.id',
@@ -14,7 +13,6 @@ describe('GET /v1/cars', () => {
         return accessToken;
     });
 
-    // State what the response should be if status code 201
     it('should response with 201 as status code and should response ', async () => {
         const name = 'Range Rover MX1';
         const price = 5000000;

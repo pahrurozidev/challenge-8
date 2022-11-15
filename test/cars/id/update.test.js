@@ -1,14 +1,10 @@
-/* eslint-disable no-undef */
-// const { INTEGER } = require('sequelize/types');
 const request = require('supertest');
 const app = require('../../../app');
 const { Car } = require('../../../app/models');
 
-// Function for testing endpoint update car
 describe('PUT /v1/cars/:id', () => {
     let car, accessToken;
 
-    // Creating Dummy Data and Bearer Token after every 'it' method
     beforeEach(async () => {
         const id = 200;
         const name = 'Mobile Command Center';
@@ -37,7 +33,6 @@ describe('PUT /v1/cars/:id', () => {
     // Delete dummy data after every 'it' method
     afterEach(() => car.destroy());
 
-    // State what the response should be if status code 200
     it('should response with 200 as status code', async () => {
         const name = 'Kotsaka';
         const price = 15000000;
@@ -55,7 +50,6 @@ describe('PUT /v1/cars/:id', () => {
                 expect(res.statusCode).toBe(200);
                 expect(res.body).toEqual(
                     expect.objectContaining({
-                        // message: expect.any(String),
                         name: expect.any(String),
                         price: expect.any(Number),
                         size: expect.any(String),
@@ -65,29 +59,4 @@ describe('PUT /v1/cars/:id', () => {
                 );
             });
     });
-
-    // State what the response should be if status code 422
-    // it('should response with 422 as status code', async () => {
-    //     const name = {};
-    //     const price = {};
-    //     const size = {};
-    //     const image = {};
-
-    //     return request(app)
-    //         .put('/v1/cars/' + car.id)
-    //         .set('Authorization', `${accessToken.body.accessToken}`)
-    //         .set('Content-Type', 'application/json')
-    //         .send({ name, price, size, image })
-    //         .then((res) => {
-    //             expect(res.statusCode).toBe(422);
-    //             expect(res.body).toEqual(
-    //                 expect.objectContaining({
-    //                     error: {
-    //                         name: expect.any(String),
-    //                         message: expect.any(String),
-    //                     },
-    //                 })
-    //             );
-    //         });
-    // });
 });

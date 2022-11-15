@@ -14,6 +14,7 @@ describe('GET /v1/cars/:id', () => {
         });
         return car;
     });
+
     afterEach(() => car.destroy());
 
     it('should response with 200 as status code', async () => {
