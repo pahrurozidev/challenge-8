@@ -12,7 +12,12 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  // sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize('postgresql://postgres:wX9jYlbxFINjwGnMwL0V@containers-us-west-112.railway.app:7796/railway', {
+    define: {
+      timestamps: false,
+    }
+  });
 }
 
 fs
