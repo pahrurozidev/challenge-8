@@ -21,8 +21,8 @@ describe('POST /v1/auth/login', () => {
     });
 
     it('should response with 404 as status code', async () => {
-        const email = 'ucok@binar.co.id';
-        const password = 'abogoboga';
+        const email = 'pahrurozi17@binar.co.id';
+        const password = '123456';
 
         return request(app)
             .post('/v1/auth/login')

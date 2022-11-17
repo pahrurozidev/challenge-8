@@ -7,10 +7,10 @@ describe('PUT /v1/cars/:id', () => {
 
     beforeEach(async () => {
         const id = 200;
-        const name = 'Mobile Command Center';
+        const name = 'Mobile';
         const price = 5000000;
         const size = 'LARGE';
-        const image = 'https://source.unsplash.com/519x519';
+        const image = 'mobile.jpg';
         const isCurrentlyRented = false;
 
         car = await Car.create({
@@ -37,7 +37,7 @@ describe('PUT /v1/cars/:id', () => {
         const name = 'Kotsaka';
         const price = 15000000;
         const size = 'LARGE';
-        const image = 'https://source.unsplash.com/519x519';
+        const image = 'katsaka.jpg';
 
         return request(app)
             .put('/v1/cars/' + car.id)

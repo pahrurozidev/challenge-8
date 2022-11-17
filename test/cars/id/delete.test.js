@@ -7,10 +7,10 @@ describe('DELETE /v1/cars/:id', () => {
 
     beforeEach(async () => {
         const id = 1000;
-        const name = 'Mobile Command Center';
+        const name = 'Mobile';
         const price = 1000000;
         const size = 'LARGE';
-        const image = 'https://source.unsplash.com/519x519';
+        const image = 'mobile.jpg';
         const isCurrentlyRented = false;
 
         accessToken = await request(app).post('/v1/auth/login').send({

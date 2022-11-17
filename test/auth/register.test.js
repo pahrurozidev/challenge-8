@@ -3,8 +3,8 @@ const app = require('../../app');
 
 describe('POST /v1/auth/register', () => {
     it('should response with 201 as status code', async () => {
-        const password = 'rahasia';
-        const name = 'fikri' + Math.random();
+        const password = '123456';
+        const name = 'pahrurozi17' + Math.random();
         const email = name + '@gmail.com';
 
         return request(app)

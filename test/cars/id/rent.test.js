@@ -20,7 +20,7 @@ describe('POST /v1/cars/:id/rent', () => {
             name: 'My Car',
             price: 100000,
             size: 'Sedan',
-            image: 'https://www.bmw.co.id/content/dam/bmw/common/all-models/i-series/i4/navigation/bmw-i4-mini-landingpage-modelfinder.png',
+            image: 'sedan.jpg',
             isCurrentlyRented: false,
         });
         return car;
